@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" >
+  <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()">
+      <mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Home</h1> 
+  <span fxFlex></span>
+  <mat-icon matTooltip="some message" (click)="tbClicked($event)" tooltip-position="below" id="one" class="example-icon" >home</mat-icon> 
+</mat-toolbar>
