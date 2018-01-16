@@ -24,7 +24,18 @@ import { MatButtonModule,
          MatPaginatorModule,
          NativeDateModule,
          MatLineModule,
-         MatToolbarModule
+         MatToolbarModule,
+         MatSortModule,
+         MatOptionModule,
+         MatChipsModule,
+         MatExpansionModule,
+         MatNativeDateModule,
+         MatProgressBarModule,
+         MatPseudoCheckboxModule,
+         MatRippleModule,
+         MatSliderModule,
+         MatSnackBarModule,
+         MatStepperModule
         } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout'; 
 
@@ -56,7 +67,18 @@ import {LayoutModule} from '@angular/cdk/layout';
     NativeDateModule,
     MatLineModule,
     LayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSortModule,
+    MatOptionModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatPseudoCheckboxModule,
+    MatRippleModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatStepperModule
   ],
   declarations: [],
   exports: [
@@ -85,7 +107,18 @@ import {LayoutModule} from '@angular/cdk/layout';
     NativeDateModule,
     MatLineModule,
     LayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSortModule,
+    MatOptionModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatPseudoCheckboxModule,
+    MatRippleModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatStepperModule
   ]
 })
 export class SharedModule { }

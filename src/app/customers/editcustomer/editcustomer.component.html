@@ -1,0 +1,279 @@
+<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" >
+  
+  <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()">
+      <mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">{{title}}</h1> 
+  <span fxFlex></span>
+
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/list">Customer List</button>
+    <button mat-menu-item>New Customer</button>
+    <button mat-menu-item>New Order</button>
+    <button mat-menu-item>New Invoice</button>
+    <button mat-menu-item>New Credit Note </button>
+    <button mat-menu-item>New Warranty Card</button>
+    <button mat-menu-item>Delete Customer</button>
+  </mat-menu>
+    
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<form fxLayout="column center">
+  
+  <mat-form-field>
+    <input matInput name="CustomerNumber" placeholder="Customer Number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="CustomerName" placeholder="Customer Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="QuickCode" placeholder="Quick Code">
+  </mat-form-field>  
+
+  <mat-checkbox matInput name="Active" placeholder="Active" >Active</mat-checkbox>
+        
+  <mat-tab-group class="demo-tab-group" fxLayout="column">
+
+    <mat-tab label="Contacts">
+      <div class="demo-tab-content">
+        <mat-table #table [dataSource]="contactsDataSource">
+     
+          <ng-container matColumnDef="ContactName">
+            <mat-header-cell *matHeaderCellDef> Contact Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.ContactName}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="Title">
+            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Title}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="BusinessPhone">
+            <mat-header-cell *matHeaderCellDef> Business Phone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.BusinessPhone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="MobilePhone">
+            <mat-header-cell *matHeaderCellDef> Mobile Phone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.MobilePhone}} </mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Email}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Fax">
+            <mat-header-cell *matHeaderCellDef> Fax </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Fax}} </mat-cell>
+          </ng-container>
+          
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          
+        </mat-table>
+
+      </div>  
+    </mat-tab>
+
+    <mat-tab label="Shipping">
+      
+      <div class="demo-tab-content">
+      
+        <mat-form-field fxFlexFill>
+          <input matInput name="AddressLine1" placeholder="Address Line 1">
+        </mat-form-field>
+
+        <mat-form-field fxFlexFill>
+          <input matInput name="AddressLine2" placeholder="Address Line 2">
+        </mat-form-field>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field >
+            <input matInput name="City" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="ProvinceState" placeholder="Province/ State">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="PostalZipCode" placeholder="Postal / Zip Code">
+          </mat-form-field>
+        
+          <mat-form-field >
+            <input matInput name="Country" placeholder="Country">
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field >
+            <input matInput name="BusinessPhone" placeholder="Business Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="HomePhone" placeholder="Home Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="MobilePhone" placeholder="Mobile Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="Fax" placeholder="Fax">
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+            <mat-form-field >
+              <input matInput name="Email" placeholder="Email">
+            </mat-form-field>
+    
+            <mat-form-field >
+              <input matInput name="Website" placeholder="Website">
+            </mat-form-field>
+    
+          </div>
+
+      </div>
+
+    </mat-tab> 
+   
+    <mat-tab label="Billing">
+      
+      <div class="demo-tab-content">
+        
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field>
+            <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Number To Bill"> 
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Name to Bill"> 
+          </mat-form-field>
+        
+          <mat-form-field>
+            <textarea matInput name="BillingAddress" placeholder="Billing Address" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" name="CustomerSince" placeholder="Customer Since"> 
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field>
+            <input type="number" matInput name="DiscountRate" placeholder="Discount Rate"> 
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-select name="PaymentMethod" placeholder="Payment Method">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-select name="PaymentTerms" placeholder="Payment Terms">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input  matInput name="TaxExemptNumber" placeholder="Tax Exempt Number"> 
+          </mat-form-field>
+  
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <div>
+            <mat-checkbox matInput name="GST" placeholder="GST" >GST</mat-checkbox>
+
+            <mat-form-field>
+              <input type="number" matInput name="GSTRate" placeholder="GST Rate"> 
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="PST" placeholder="PST" >PST</mat-checkbox>
+
+            <mat-form-field>
+              <input type="number" matInput name="PSTRate" placeholder="PST Rate"> 
+            </mat-form-field>   
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="AllowPrintingStatements" >Allow Printing Statements</mat-checkbox>
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="AllowThirdPartyBilling"  >Allow 3rd Pty Billing to Customer</mat-checkbox>
+          </div>
+  
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" >
+          <mat-form-field fxFlexFill>
+            <mat-select name="ThirdPartyStatementMessage" placeholder="Print the following information in the billing section of another customers invoice when it is billed to this customer.">
+              <mat-option value="option">Message 'Billed to this Customer'</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+    </mat-tab> 
+  
+    <mat-tab label="Defaults">
+      <div class="demo-tab-content">
+
+      </div> 
+    </mat-tab>
+
+    <mat-tab label="Notes">
+      <div class="demo-tab-content">
+
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Attachments">
+      <div class="demo-tab-content">
+
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Balance Due">
+      <div class="demo-tab-content">
+
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Statistics">
+      <div class="demo-tab-content">
+
+      </div>   
+    </mat-tab> 
+
+  </mat-tab-group>
+
+  <button mat-fab class="fab" (click)="openDialog()"><mat-icon matTooltip="new order" id="new" tooltip-position="below">check</mat-icon></button> 
+
+</form> 

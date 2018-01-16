@@ -9,7 +9,6 @@ import { SharedModule } from '@app/shared';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeModule } from './home/home.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -27,3 +27,16 @@
   .mat-header-row, .mat-row {
     min-width: 2200px;
   }
+  
+  .mat-column-select {
+    overflow: visible;
+  }
+  
+  .fab {
+    top: auto !important;
+    right: 30px !important;
+    bottom: 30px !important;
+    left: auto !important;
+    position: fixed !important;
+  }
+

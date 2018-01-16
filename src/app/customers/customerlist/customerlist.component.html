@@ -1,0 +1,159 @@
+<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" >
+  
+  <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()">
+      <mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Edit Customer</h1> 
+  <span fxFlex></span>
+
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item  routerLink="/edit">New Customer</button>
+  </mat-menu>
+    
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+  </button>
+
+</mat-toolbar>
+  
+<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field floatPlaceholder="never">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="tableDataSource" matSort>
+  
+      <ng-container matColumnDef="select">
+
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+
+      </ng-container>
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <ng-container matColumnDef="CustomerNumber" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Num </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <a mat-button (click)="openDialog()">{{row.CustomerNumber}}</a> 
+        </mat-cell> 
+      </ng-container>
+
+      <ng-container matColumnDef="QuickCode">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> QuickCode </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.QuickCode}} </mat-cell>
+        </ng-container>
+
+      <ng-container matColumnDef="CustomerName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row">  <button mat-button routerLink="/edit">{{row.CustomerName}}</button> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ContactName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ContactName </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.ContactName}} </mat-cell>
+        </ng-container>
+       
+      <ng-container matColumnDef="BusinessPhone">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> BusinessPhone </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.BusinessPhone}} </mat-cell>
+        </ng-container>  
+
+      <ng-container matColumnDef="Reference1">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Reference1 </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Reference1}} </mat-cell>
+        </ng-container>   
+        
+      <ng-container matColumnDef="Reference2">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Reference2 </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Reference2}} </mat-cell>
+        </ng-container>  
+        
+      <ng-container matColumnDef="HomePhone">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> HomePhone </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.HomePhone}} </mat-cell>
+        </ng-container>         
+  
+      <ng-container matColumnDef="MobilePhone">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> MobilePhone </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.MobilePhone}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="Fax">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Fax </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Fax}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="Address">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Address}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="City">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.City}} </mat-cell>
+        </ng-container>         
+
+      <ng-container matColumnDef="ProvinceState">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ProvinceState </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.ProvinceState}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="PostalZipCode">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> PostalZipCode </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.PostalZipCode}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="Country">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Country}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="BillingNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> BillingNumber </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.BillingNumber}} </mat-cell>
+        </ng-container> 
+
+      <ng-container matColumnDef="BillingName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> BillingName </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.BillingName}} </mat-cell>
+        </ng-container>         
+
+      <ng-container matColumnDef="Billable">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Billable </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Billable}} </mat-cell>
+        </ng-container>  
+
+      <ng-container matColumnDef="Advertising">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Advertising </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Advertising}} </mat-cell>
+        </ng-container>         
+
+      <ng-container matColumnDef="Status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Status}} </mat-cell>
+        </ng-container> 
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+    <button mat-fab class="fab" (click)="openDialog()"><mat-icon matTooltip="new order" id="new" tooltip-position="below">mode_edit</mat-icon></button> 
+
+  </div>

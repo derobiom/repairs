@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CustomersComponent } from './customers/customers.component';
-import { CustomersToolbarComponent } from './customers-toolbar/customers-toolbar.component';
+import { EditcustomerComponent } from './editcustomer/editcustomer.component';
+import { CustomerlistComponent } from '@app/customers/customerlist/customerlist.component';
 
 const routes: Routes = [
-    {path: '', component: CustomersComponent }];
+    {path: '', component: CustomerlistComponent },
+    {path: 'edit', component: EditcustomerComponent },
+    {path: 'list', component: CustomerlistComponent },
+  
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
