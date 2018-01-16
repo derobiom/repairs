@@ -44,7 +44,7 @@
         <mat-table #table [dataSource]="contactsDataSource">
      
           <ng-container matColumnDef="ContactName">
-            <mat-header-cell *matHeaderCellDef> Contact Name </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.ContactName}} </mat-cell>
           </ng-container>
       
@@ -53,13 +53,13 @@
             <mat-cell *matCellDef="let element"> {{element.Title}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="BusinessPhone">
-            <mat-header-cell *matHeaderCellDef> Business Phone </mat-header-cell>
+          <!-- <ng-container matColumnDef="BusinessPhone">
+            <mat-header-cell *matHeaderCellDef> Office </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.BusinessPhone}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="MobilePhone">
-            <mat-header-cell *matHeaderCellDef> Mobile Phone </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Mobile </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.MobilePhone}} </mat-cell>
           </ng-container>
           
@@ -71,7 +71,7 @@
           <ng-container matColumnDef="Fax">
             <mat-header-cell *matHeaderCellDef> Fax </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.Fax}} </mat-cell>
-          </ng-container>
+          </ng-container> -->
           
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
