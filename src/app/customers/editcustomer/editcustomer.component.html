@@ -39,47 +39,7 @@
         
   <mat-tab-group class="demo-tab-group" fxLayout="column">
 
-    <mat-tab label="Contacts">
-      <div class="demo-tab-content">
-        <mat-table #table [dataSource]="contactsDataSource">
-     
-          <ng-container matColumnDef="ContactName">
-            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.ContactName}} </mat-cell>
-          </ng-container>
-      
-          <ng-container matColumnDef="Title">
-            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.Title}} </mat-cell>
-          </ng-container>
-
-          <!-- <ng-container matColumnDef="BusinessPhone">
-            <mat-header-cell *matHeaderCellDef> Office </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.BusinessPhone}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="MobilePhone">
-            <mat-header-cell *matHeaderCellDef> Mobile </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.MobilePhone}} </mat-cell>
-          </ng-container>
-          
-          <ng-container matColumnDef="Email">
-            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.Email}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="Fax">
-            <mat-header-cell *matHeaderCellDef> Fax </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.Fax}} </mat-cell>
-          </ng-container> -->
-          
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-          
-        </mat-table>
-
-      </div>  
-    </mat-tab>
+   
 
     <mat-tab label="Shipping">
       
@@ -241,22 +201,121 @@
       </div>
 
     </mat-tab> 
-  
-    <mat-tab label="Defaults">
-      <div class="demo-tab-content">
 
+    <mat-tab label="Contacts">
+      <div class="demo-tab-content">
+        
+          <mat-accordion>
+              <mat-expansion-panel *ngFor="let contact of contactsDataSource.data" hideToggle="true">
+                <mat-expansion-panel-header  > 
+                  <mat-panel-title>
+                    {{contact.ContactName}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{contact.Title}}
+                    
+                  </mat-panel-description>
+                    <div class="button-row">
+                      <button mat-icon-button color="primary">
+                        <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                      </button>
+                    </div>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field>
+                  <input matInput placeholder="Contact name" [value]="contact.ContactName" >
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Title" [value]="contact.Title">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Business Phone" [value]="contact.BusinessPhone">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Mobile Phone"  [value]="contact.MobilePhone">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Email"  [value]="contact.Email">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Fax"  [value]="contact.Fax">
+                </mat-form-field>
+
+              </mat-expansion-panel>          
+            
+            </mat-accordion>
+
+            <button mat-raised-button color="primary">New Contact</button>
+
+      </div>  
+    </mat-tab>
+      
+    <mat-tab label="Defaults">
+      <div class="demo-tab-content" fxFlexLayout="column" >
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>
+          <mat-form-field >
+            <input matInput name="Reference1" placeholder="Reference 1">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput name="Reference2" placeholder="Reference 2">
+          </mat-form-field>
+        </div>
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>
+          <mat-form-field>
+            <mat-select placeholder="Advertising">
+              <mat-option [value]="billboard">Billboard</mat-option>
+              <mat-option [value]="radio">Radio</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Ship Via">
+              <mat-option [value]="cod">C.O.D.</mat-option>
+              <mat-option [value]="fedex">Fedex</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> 
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>  
+          <mat-form-field>
+            <mat-select placeholder="Warranty Plan">
+              <mat-option [value]="Extended30Days">Extended 30 Days</mat-option>
+              <mat-option [value]="Manufacturers">Manufacturers</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Language">
+              <mat-option [value]="billboard">English</mat-option>
+              <mat-option [value]="radio">Spanish</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div> 
     </mat-tab>
 
     <mat-tab label="Notes">
-      <div class="demo-tab-content">
+      <div class="demo-tab-content" >
+        <div fxLayout="column center">
 
+          <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this customer.</mat-checkbox>
+          <mat-form-field>
+            <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="10"></textarea>
+          </mat-form-field>
+          <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this customer.</mat-checkbox>
+          <mat-form-field>
+            <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="10"></textarea>
+          </mat-form-field>  
+        </div>
       </div>   
     </mat-tab>
 
     <mat-tab label="Attachments">
       <div class="demo-tab-content">
-
+        <mat-list>
+          <mat-list-item>Item 1 <mat-icon>delete</mat-icon></mat-list-item>
+          <mat-list-item>Item 2 <mat-icon>delete</mat-icon></mat-list-item>
+          <mat-list-item>Item 3 <mat-icon>delete</mat-icon></mat-list-item>
+        </mat-list>
       </div>   
     </mat-tab>
 

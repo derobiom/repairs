@@ -9,20 +9,22 @@ import { SelectionModel} from '@angular/cdk/collections';
   styleUrls: ['./editcustomer.component.scss']
 })
 export class EditcustomerComponent implements OnInit {
-  displayedColumns = ['ContactName', 'Title', 'BusinessPhone', 'MobilePhone','Fax','Email'];
+  displayedColumns = ['ContactName', 'Title'];//, 'BusinessPhone', 'MobilePhone','Fax','Email'
   contactsDataSource = new MatTableDataSource<ContactData>(CONTACT_DATA);
-  selection = new SelectionModel<ContactData>(true, []);
   contact: ContactData;
 
   constructor() { 
   }
 
   ngOnInit() {
+    
   }
 
   ngAfterViewInit(){
 
   }
+
+  
 
 }
 
@@ -34,6 +36,7 @@ export interface ContactData {
   Fax: string;
   Email: string;
 }
+
 
 const CONTACT_DATA: ContactData[] = [
   {
@@ -54,6 +57,8 @@ const CONTACT_DATA: ContactData[] = [
    },
 
 ];
+
+
 
 
 
