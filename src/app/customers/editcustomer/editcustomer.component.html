@@ -320,40 +320,115 @@
     </mat-tab>
 
     <mat-tab label="Notifications">
-        <div class="demo-tab-content" fxFlexLayout="column">
-          <div>
-            <mat-list>
-              Prevent Notifications:
-              <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Overdue</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">For items owned by others</mat-checkbox>
-            </mat-list>
-          </div>
-          <div>
-            <mat-list>
-              Send Status Reports:
-              <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Wednesday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Thursday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Friday</mat-checkbox>
-              <mat-checkbox name="preventEstimateNotification">Saturday</mat-checkbox>
-            </mat-list>
-          </div>
-        </div>   
-      </mat-tab>
+      <div class="demo-tab-content" fxFlexLayout="column">
+        <div>
+          <mat-list>
+            Prevent Notifications:
+            <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Overdue</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">For items owned by others</mat-checkbox>
+          </mat-list>
+        </div>
+        <div>
+          <mat-list>
+            Send Status Reports:
+            <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Wednesday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Thursday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Friday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Saturday</mat-checkbox>
+          </mat-list>
+        </div>
+      </div>   
+    </mat-tab>
 
     <mat-tab label="Balance Due">
       <div class="demo-tab-content">
+          <div class="example-container mat-elevation-z8">
+           
+            <mat-table  #table [dataSource]="balanceDataSource">
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <ng-container matColumnDef="Balance">
+                <mat-header-cell *matHeaderCellDef>Balance </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.Balance}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Total">
+                <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.Total}}</mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Thirty">
+                <mat-header-cell *matHeaderCellDef> Thirty </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.Thirty}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Sixty">
+                <mat-header-cell *matHeaderCellDef> Sixty </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Sixty}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Ninety">
+                <mat-header-cell *matHeaderCellDef> Ninety </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Ninety}} </mat-cell>
+              </ng-container>
+                                        
+              <ng-container matColumnDef="Over">
+                <mat-header-cell *matHeaderCellDef> Over </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Over}} </mat-cell>
+              </ng-container> 
 
+              <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: balancedueColumns;"></mat-row>
+            </mat-table>
+          </div>
       </div>   
     </mat-tab>
 
     <mat-tab label="Statistics">
       <div class="demo-tab-content">
+          <div class="example-container mat-elevation-z8">
+            
+              <mat-table  #table [dataSource]="statsDataSource">
+            
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+            
+                <ng-container matColumnDef="Stat">
+                  <mat-header-cell *matHeaderCellDef>Stat </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.Stat}} </mat-cell>
+                </ng-container>
 
+                <ng-container matColumnDef="MTD">
+                  <mat-header-cell *matHeaderCellDef> MTD </mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.MTD}}</mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="YTD">
+                  <mat-header-cell *matHeaderCellDef> YTD </mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.YTD}}</mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="LastYear">
+                  <mat-header-cell *matHeaderCellDef> Last Yr </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.LastYear}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="YearBeforeLast">
+                  <mat-header-cell *matHeaderCellDef> Yr Before </mat-header-cell>
+                  <mat-cell *matCellDef="let row" >{{row.YearBeforeLast}} </mat-cell>
+                </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="statsColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: statsColumns;"></mat-row>
+              </mat-table>
+            </div>
       </div>   
     </mat-tab> 
 
