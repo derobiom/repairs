@@ -1,0 +1,439 @@
+<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" >
+  
+  <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()">
+      <mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">{{title}}</h1> 
+  <span fxFlex></span>
+
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/list">Vendor List</button>
+    <button mat-menu-item>New Vendor</button>
+    <button mat-menu-item>New Order</button>
+    <button mat-menu-item>New Invoice</button>
+    <button mat-menu-item>New Credit Note </button>
+    <button mat-menu-item>New Warranty Card</button>
+    <button mat-menu-item>Delete Vendor</button>
+  </mat-menu>
+    
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<form fxLayout="column center">
+  
+  <mat-form-field>
+    <input matInput name="VendorNumber" placeholder="Vendor Number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="VendorName" placeholder="Vendor Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="QuickCode" placeholder="Quick Code">
+  </mat-form-field>  
+
+  <mat-checkbox matInput name="Active" placeholder="Active" >Active</mat-checkbox>
+        
+  <mat-tab-group class="demo-tab-group" fxLayout="column">
+
+   
+
+    <mat-tab label="Shipping">
+      
+      <div class="demo-tab-content">
+      
+        <mat-form-field fxFlexFill>
+          <input matInput name="AddressLine1" placeholder="Address Line 1">
+        </mat-form-field>
+
+        <mat-form-field fxFlexFill>
+          <input matInput name="AddressLine2" placeholder="Address Line 2">
+        </mat-form-field>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field >
+            <input matInput name="City" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="ProvinceState" placeholder="Province/ State">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="PostalZipCode" placeholder="Postal / Zip Code">
+          </mat-form-field>
+        
+          <mat-form-field >
+            <input matInput name="Country" placeholder="Country">
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field >
+            <input matInput name="BusinessPhone" placeholder="Business Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="HomePhone" placeholder="Home Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="MobilePhone" placeholder="Mobile Phone">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="Fax" placeholder="Fax">
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+            <mat-form-field >
+              <input matInput name="Email" placeholder="Email">
+            </mat-form-field>
+    
+            <mat-form-field >
+              <input matInput name="Website" placeholder="Website">
+            </mat-form-field>
+    
+          </div>
+
+      </div>
+
+    </mat-tab> 
+   
+    <mat-tab label="Billing">
+      
+      <div class="demo-tab-content">
+        
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field>
+            <input matInput name="VendorNumberToBillNumber" placeholder="Vendor Number To Bill"> 
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput name="VendorNumberToBillNumber" placeholder="Vendor Name to Bill"> 
+          </mat-form-field>
+        
+          <mat-form-field>
+            <textarea matInput name="BillingAddress" placeholder="Billing Address" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" name="VendorSince" placeholder="Vendor Since"> 
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <mat-form-field>
+            <input type="number" matInput name="DiscountRate" placeholder="Discount Rate"> 
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-select name="PaymentMethod" placeholder="Payment Method">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-select name="PaymentTerms" placeholder="Payment Terms">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input  matInput name="TaxExemptNumber" placeholder="Tax Exempt Number"> 
+          </mat-form-field>
+  
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" fxLayoutWrap>
+
+          <div>
+            <mat-checkbox matInput name="GST" placeholder="GST" >GST</mat-checkbox>
+
+            <mat-form-field>
+              <input type="number" matInput name="GSTRate" placeholder="GST Rate"> 
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="PST" placeholder="PST" >PST</mat-checkbox>
+
+            <mat-form-field>
+              <input type="number" matInput name="PSTRate" placeholder="PST Rate"> 
+            </mat-form-field>   
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="AllowPrintingStatements" >Allow Printing Statements</mat-checkbox>
+          </div>
+
+          <div>
+            <mat-checkbox matInput name="AllowThirdPartyBilling"  >Allow 3rd Pty Billing to Vendor</mat-checkbox>
+          </div>
+  
+        </div>
+
+        <div fxLayout='row' fxLayoutAlign="space-around" >
+          <mat-form-field fxFlexFill>
+            <mat-select name="ThirdPartyStatementMessage" placeholder="Print the following information in the billing section of another Vendors invoice when it is billed to this Vendor.">
+              <mat-option value="option">Message 'Billed to this Vendor'</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+    </mat-tab> 
+
+    <mat-tab label="Contacts">
+      <div class="demo-tab-content">
+        
+          <mat-accordion>
+              <mat-expansion-panel *ngFor="let contact of contactsDataSource.data" hideToggle="true">
+                <mat-expansion-panel-header  > 
+                  <mat-panel-title>
+                    {{contact.ContactName}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{contact.Title}}
+                    
+                  </mat-panel-description>
+                    <div class="button-row">
+                      <button mat-icon-button color="primary">
+                        <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                      </button>
+                    </div>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field>
+                  <input matInput placeholder="Contact name" [value]="contact.ContactName" >
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Title" [value]="contact.Title">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Business Phone" [value]="contact.BusinessPhone">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Mobile Phone"  [value]="contact.MobilePhone">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Email"  [value]="contact.Email">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Fax"  [value]="contact.Fax">
+                </mat-form-field>
+
+              </mat-expansion-panel>          
+            
+            </mat-accordion>
+
+            <button mat-raised-button color="primary">New Contact</button>
+
+      </div>  
+    </mat-tab>
+      
+    <mat-tab label="Defaults">
+      <div class="demo-tab-content" fxFlexLayout="column" >
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>
+          <mat-form-field >
+            <input matInput name="Reference1" placeholder="Reference 1">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput name="Reference2" placeholder="Reference 2">
+          </mat-form-field>
+        </div>
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>
+          <mat-form-field>
+            <mat-select placeholder="Advertising">
+              <mat-option [value]="billboard">Billboard</mat-option>
+              <mat-option [value]="radio">Radio</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Ship Via">
+              <mat-option [value]="cod">C.O.D.</mat-option>
+              <mat-option [value]="fedex">Fedex</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> 
+        <div fxFlexLayout="row" fxLayoutAlign="space-around" fxLayoutWrap>  
+          <mat-form-field>
+            <mat-select placeholder="Warranty Plan">
+              <mat-option [value]="Extended30Days">Extended 30 Days</mat-option>
+              <mat-option [value]="Manufacturers">Manufacturers</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Language">
+              <mat-option [value]="billboard">English</mat-option>
+              <mat-option [value]="radio">Spanish</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div> 
+    </mat-tab>
+
+    <mat-tab label="Notes">
+      <div class="demo-tab-content" >
+        <div fxLayout="column center">
+
+          <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this Vendor.</mat-checkbox>
+          <mat-form-field>
+            <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="10"></textarea>
+          </mat-form-field>
+          <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this Vendor.</mat-checkbox>
+          <mat-form-field>
+            <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="10"></textarea>
+          </mat-form-field>  
+        </div>
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Attachments">
+      <div class="demo-tab-content">
+        <mat-list>
+          <mat-list-item>Item 1 <mat-icon>delete</mat-icon></mat-list-item>
+          <mat-list-item>Item 2 <mat-icon>delete</mat-icon></mat-list-item>
+          <mat-list-item>Item 3 <mat-icon>delete</mat-icon></mat-list-item>
+        </mat-list>
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Notifications">
+      <div class="demo-tab-content" fxFlexLayout="column">
+        <div>
+          <mat-list>
+            Prevent Notifications:
+            <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Overdue</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">For items owned by others</mat-checkbox>
+          </mat-list>
+        </div>
+        <div>
+          <mat-list>
+            Send Status Reports:
+            <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Wednesday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Thursday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Friday</mat-checkbox>
+            <mat-checkbox name="preventEstimateNotification">Saturday</mat-checkbox>
+          </mat-list>
+        </div>
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Balance Due">
+      <div class="demo-tab-content">
+          <div class="example-container mat-elevation-z8">
+           
+            <mat-table  #table [dataSource]="balanceDataSource">
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <ng-container matColumnDef="Balance">
+                <mat-header-cell *matHeaderCellDef>Balance </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.Balance}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Total">
+                <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.Total}}</mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Thirty">
+                <mat-header-cell *matHeaderCellDef> Thirty </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.Thirty}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Sixty">
+                <mat-header-cell *matHeaderCellDef> Sixty </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Sixty}} </mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="Ninety">
+                <mat-header-cell *matHeaderCellDef> Ninety </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Ninety}} </mat-cell>
+              </ng-container>
+                                        
+              <ng-container matColumnDef="Over">
+                <mat-header-cell *matHeaderCellDef> Over </mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.Over}} </mat-cell>
+              </ng-container> 
+
+              <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: balancedueColumns;"></mat-row>
+            </mat-table>
+          </div>
+      </div>   
+    </mat-tab>
+
+    <mat-tab label="Statistics">
+      <div class="demo-tab-content">
+          <div class="example-container mat-elevation-z8">
+            
+              <mat-table  #table [dataSource]="statsDataSource">
+            
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+            
+                <ng-container matColumnDef="Stat">
+                  <mat-header-cell *matHeaderCellDef>Stat </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.Stat}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="MTD">
+                  <mat-header-cell *matHeaderCellDef> MTD </mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.MTD}}</mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="YTD">
+                  <mat-header-cell *matHeaderCellDef> YTD </mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.YTD}}</mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="LastYear">
+                  <mat-header-cell *matHeaderCellDef> Last Yr </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.LastYear}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="YearBeforeLast">
+                  <mat-header-cell *matHeaderCellDef> Yr Before </mat-header-cell>
+                  <mat-cell *matCellDef="let row" >{{row.YearBeforeLast}} </mat-cell>
+                </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="statsColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: statsColumns;"></mat-row>
+              </mat-table>
+            </div>
+      </div>   
+    </mat-tab> 
+
+  </mat-tab-group>
+
+  <button mat-fab class="fab" (click)="openDialog()"><mat-icon matTooltip="new order" id="new" tooltip-position="below">check</mat-icon></button> 
+
+</form> 
