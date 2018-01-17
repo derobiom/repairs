@@ -281,20 +281,18 @@
   
     <mat-card-content>
 
-      <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this customer.</mat-checkbox>
-
-      <mat-form-field>
-      <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2"
-        matAutosizeMaxRows="10"></textarea>
+      <mat-form-field fxFlexFill >
+        <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10" ></textarea>
       </mat-form-field>
 
-      <mat-checkbox>Copy these notes to all new repair orders, sales invoices, and credit notes for this customer.</mat-checkbox>
+      <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
 
-      <mat-form-field>
-        <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2"
-          matAutosizeMaxRows="10"></textarea>
+      <mat-form-field fxFlexFill>
+        <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10"></textarea>
       </mat-form-field>  
 
+      <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
+        
     </mat-card-content>
 
   </mat-card>
@@ -306,11 +304,12 @@
     <mat-card-content>
 
       <mat-list>
-        <mat-list-item>Item 1 <mat-icon>delete</mat-icon></mat-list-item>
-        <mat-list-item>Item 2 <mat-icon>delete</mat-icon></mat-list-item>
-        <mat-list-item>Item 3 <mat-icon>delete</mat-icon></mat-list-item>
+        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
+        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
+        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
       </mat-list>
 
+      <button mat-raised-button color="primary">New Attachment</button>
 
     </mat-card-content>
 
@@ -323,15 +322,15 @@
       <mat-card-content>
 
       <mat-list>
-        Prevent Notifications:
+        <strong>Prevent notifications for</strong>
         <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
         <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Overdue</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">For items owned by others</mat-checkbox>
+        <mat-checkbox name="preventEstimateNotification">Overdue Items</mat-checkbox>
+        <mat-checkbox name="preventEstimateNotification">Items owned by other customers</mat-checkbox>
       </mat-list>
 
       <mat-list>
-        Send Status Reports:
+        <strong>Send status reports on</strong>
         <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
         <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
         <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
@@ -354,33 +353,33 @@
       <mat-table  #table [dataSource]="balanceDataSource">
 
         <ng-container matColumnDef="Balance">
-          <mat-header-cell *matHeaderCellDef>Balance </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.Balance}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="150px">Balance </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="150px"> {{row.Balance}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Total">
-          <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.Total}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Total </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Total}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Thirty">
-          <mat-header-cell *matHeaderCellDef> Thirty </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.Thirty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Thirty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px"> {{row.Thirty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Sixty">
-          <mat-header-cell *matHeaderCellDef> Sixty </mat-header-cell>
-          <mat-cell *matCellDef="let row" >{{row.Sixty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Sixty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Sixty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Ninety">
-          <mat-header-cell *matHeaderCellDef> Ninety </mat-header-cell>
-          <mat-cell *matCellDef="let row" >{{row.Ninety}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Ninety </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px" >{{row.Ninety}} </mat-cell>
         </ng-container>
                                   
         <ng-container matColumnDef="Over">
-          <mat-header-cell *matHeaderCellDef> Over </mat-header-cell>
-          <mat-cell *matCellDef="let row" >{{row.Over}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Over </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Over}} </mat-cell>
         </ng-container> 
 
         <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
@@ -394,36 +393,36 @@
   </mat-card>
   
   <mat-card>
-
+ 
     <mat-card-title>Statistics</mat-card-title>
             
     <mat-card-content>
 
-      <mat-table  #table [dataSource]="statsDataSource">
+      <mat-table [dataSource]="statsDataSource">
 
         <ng-container matColumnDef="Stat">
-          <mat-header-cell *matHeaderCellDef>Stat </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.Stat}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="200px"> </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="200px"> {{row.Stat}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="MTD">
-          <mat-header-cell *matHeaderCellDef> MTD </mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.MTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> MTD </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.MTD}}</mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="YTD">
-          <mat-header-cell *matHeaderCellDef> YTD </mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.YTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> YTD </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.YTD}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="LastYear">
-          <mat-header-cell *matHeaderCellDef> Last Yr </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.LastYear}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Last Yr </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px"> {{row.LastYear}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="YearBeforeLast">
-          <mat-header-cell *matHeaderCellDef> Yr Before </mat-header-cell>
-          <mat-cell *matCellDef="let row" >{{row.YearBeforeLast}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Yr Before </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.YearBeforeLast}} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="statsColumns"></mat-header-row>
