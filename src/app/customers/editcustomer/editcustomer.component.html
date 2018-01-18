@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" >
+<mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
   
   <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()">
       <mat-icon>menu</mat-icon></button>
@@ -28,7 +28,7 @@
   
     <mat-card-title>General Info</mat-card-title>
   
-    <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="30px">
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
     
       <div fxLayout="column" fxFlex.lg="30%"> 
 
@@ -129,11 +129,11 @@
 
   </mat-card>
 
-  <mat-card fxFlex.lg="60%">
+  <mat-card fxFlex.lg="65%">
 
     <mat-card-title>Billing</mat-card-title>
   
-      <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="30px">
+      <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
         
         <div fxLayout="column" fxFlex.lg="25%">
 
@@ -180,10 +180,10 @@
             <input  matInput name="TaxExemptNumber" placeholder="Tax Exempt Number"> 
           </mat-form-field>
 
-          <mat-checkbox matInput fxFlex="10px" name="GST" placeholder="GST" >GST</mat-checkbox>
+          <mat-checkbox matInput name="GST" placeholder="GST" >GST</mat-checkbox>
 
           <mat-form-field >
-            <input type="number" matInput fxFlex="20px" name="GSTRate" placeholder="Rate"> 
+            <input type="number" matInput name="GSTRate" placeholder="Rate"> 
           </mat-form-field>
 
           <mat-checkbox matInput name="PST" placeholder="PST" >PST</mat-checkbox>
@@ -194,7 +194,7 @@
 
         </div>
 
-      <div fxLayout="column"  fxLayoutGap="30px" fxFlexFill>
+      <div fxLayout="column"  fxLayoutGap="10px" fxFlexFill>
 
         <mat-checkbox matInput fxFlexFill name="AllowPrintingStatements" >Allow Printing Statements</mat-checkbox>
 
@@ -265,7 +265,7 @@
   </mat-card>
 
   <div fxLayout="row wrap">
-    <mat-card fxFlex.lg="30%" >
+    <mat-card fxFlex.lg="35%" >
       
       <mat-card-title>Defaults</mat-card-title>
 
@@ -336,7 +336,7 @@
   </div>
 
   <div fxLayout="row wrap" >
-    <mat-card fxFlex.lg="45%">
+    <mat-card fxFlex.lg="47%">
 
       <mat-card-title>Attachments</mat-card-title>
 
@@ -354,11 +354,11 @@
 
     </mat-card>
 
-    <mat-card fxFlex.lg="45%">
+    <mat-card fxFlex.lg="47%">
 
         <mat-card-title>Notifications</mat-card-title>
     
-        <mat-card-content fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+        <mat-card-content fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
 
         <mat-list fxLayout="column">
           <strong>Prevent notifications for</strong>
