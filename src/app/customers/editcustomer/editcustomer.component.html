@@ -394,33 +394,33 @@
       <mat-table  #table [dataSource]="balanceDataSource">
 
         <ng-container matColumnDef="Balance">
-          <mat-header-cell *matHeaderCellDef fxFlex="130px">Balance </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="130px"> {{row.Balance}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef >Balance </mat-header-cell>
+          <mat-cell *matCellDef="let row" > {{row.Balance}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Total">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Total </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Total}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef > Total </mat-header-cell>
+          <mat-cell *matCellDef="let row" >{{row.Total}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Thirty">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Thirty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px"> {{row.Thirty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef > Thirty </mat-header-cell>
+          <mat-cell *matCellDef="let row" > {{row.Thirty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Sixty">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Sixty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Sixty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef > Sixty </mat-header-cell>
+          <mat-cell *matCellDef="let row" >{{row.Sixty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Ninety">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Ninety </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px" >{{row.Ninety}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef > Ninety </mat-header-cell>
+          <mat-cell *matCellDef="let row" >{{row.Ninety}} </mat-cell>
         </ng-container>
                                   
         <ng-container matColumnDef="Over">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Over </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Over}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef > Over </mat-header-cell>
+          <mat-cell *matCellDef="let row" >{{row.Over}} </mat-cell>
         </ng-container> 
 
         <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
@@ -442,28 +442,28 @@
       <mat-table [dataSource]="statsDataSource">
 
         <ng-container matColumnDef="Stat">
-          <mat-header-cell *matHeaderCellDef fxFlex="170px"> </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="170px"> {{row.Stat}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Stat}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="MTD">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> MTD </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.MTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef> MTD </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.MTD}}</mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="YTD">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> YTD </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.YTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef> YTD </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.YTD}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="LastYear">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Last Yr </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px"> {{row.LastYear}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Last Yr </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.LastYear}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="YearBeforeLast">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Yr Bef </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.YearBeforeLast}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Yr Bef </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.YearBeforeLast}} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="statsColumns"></mat-header-row>
