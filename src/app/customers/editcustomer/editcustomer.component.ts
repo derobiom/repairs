@@ -75,22 +75,22 @@ const CONTACT_DATA: ContactData[] = [
 ];
 
 const STATS_DATA: StatsData[] = [
-{Stat: "Repair Orders Pending",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Repair Orders Repaired",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Repair Orders Refused",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Repair Invoices Billed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Repair Invoices Revenue",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Sales Invoices Processed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Sales Invoices Billed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Sales Invoices Revenue",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Credit Notes Processed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
-{Stat: "Credit Notes Billed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Rep Orders Pend",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Rep Orders Repd",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Rep Orders Ref",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Rep Inv Billed",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Rep Inv Revenue",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Sales Inv Proc",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Sales Inv Bill",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Sales Inv Rev",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Cred Notes Proc",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
+{Stat: "Cred Notes Bill",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
 {Stat: "Amount Credited",MTD: "22",YTD: "33",LastYear: "111",YearBeforeLast: "222"},
 ];
 
 const BALANCE_DATA: BalanceData[] = [
   {
-    Balance: "Repair Invoices",
+    Balance: "Repair Inv",
     Total: "66",
     Thirty: "77",
     Sixty: "88",
@@ -98,7 +98,7 @@ const BALANCE_DATA: BalanceData[] = [
     Over: "1",
    },
    {
-    Balance: "Sales Invoices",
+    Balance: "Sales Inv",
     Total: "66",
     Thirty: "77",
     Sixty: "88",
@@ -106,7 +106,7 @@ const BALANCE_DATA: BalanceData[] = [
     Over: "1",
    },
    {
-    Balance: "Credit Notes",
+    Balance: "Cred Notes",
     Total: "66",
     Thirty: "77",
     Sixty: "88",
@@ -114,7 +114,7 @@ const BALANCE_DATA: BalanceData[] = [
     Over: "1",
    },
    {
-    Balance: "Total Balance",
+    Balance: "Total Bal",
     Total: "662",
     Thirty: "772",
     Sixty: "882",

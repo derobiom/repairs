@@ -365,7 +365,7 @@
           <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
           <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
           <mat-checkbox name="preventEstimateNotification">Overdue Items</mat-checkbox>
-          <mat-checkbox name="preventEstimateNotification">Items owned by other customers</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Owned by others</mat-checkbox>
         </mat-list>
 
         <mat-list fxLayout="column">
@@ -394,33 +394,33 @@
       <mat-table  #table [dataSource]="balanceDataSource">
 
         <ng-container matColumnDef="Balance">
-          <mat-header-cell *matHeaderCellDef fxFlex="150px">Balance </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="150px"> {{row.Balance}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="130px">Balance </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="130px"> {{row.Balance}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Total">
-          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Total </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Total}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Total </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Total}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Thirty">
-          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Thirty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="65px"> {{row.Thirty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Thirty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px"> {{row.Thirty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Sixty">
-          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Sixty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Sixty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Sixty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Sixty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Ninety">
-          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Ninety </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="65px" >{{row.Ninety}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Ninety </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px" >{{row.Ninety}} </mat-cell>
         </ng-container>
                                   
         <ng-container matColumnDef="Over">
-          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Over </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Over}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Over </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.Over}} </mat-cell>
         </ng-container> 
 
         <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
@@ -442,8 +442,8 @@
       <mat-table [dataSource]="statsDataSource">
 
         <ng-container matColumnDef="Stat">
-          <mat-header-cell *matHeaderCellDef fxFlex="190px"> </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="190px"> {{row.Stat}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="170px"> </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="170px"> {{row.Stat}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="MTD">
@@ -462,7 +462,7 @@
         </ng-container>
 
         <ng-container matColumnDef="YearBeforeLast">
-          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Yr Before </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Yr Bef </mat-header-cell>
           <mat-cell *matCellDef="let row" fxFlex="55px">{{row.YearBeforeLast}} </mat-cell>
         </ng-container>
 
