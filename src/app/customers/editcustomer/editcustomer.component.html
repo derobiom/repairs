@@ -22,63 +22,84 @@
 </mat-toolbar>
 
 <!-- Form Fields -->
-<form fxLayout="row center" fxLayout="row center" fxLayoutAlign="space-around" fxLayoutWrap>
+<form >
    
   <mat-card>
   
     <mat-card-title>General Info</mat-card-title>
   
-    <mat-card-content>
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="30px">
     
-      <mat-form-field>
-        <input matInput name="CustomerNumber" placeholder="Customer Number">
-      </mat-form-field>
+      <div fxLayout="column" fxFlex.lg="30%"> 
 
-      <mat-form-field>
-        <input matInput name="CustomerName" placeholder="Customer Name">
-      </mat-form-field>
+        <mat-form-field >
+          <input matInput name="CustomerNumber" placeholder="Customer Number" >
+        </mat-form-field> 
 
-      <mat-form-field>
-        <input matInput name="QuickCode" placeholder="Quick Code">
-      </mat-form-field>  
+        <mat-form-field > 
+          <input matInput name="CustomerName" placeholder="Customer Name">
+        </mat-form-field>
 
-      <mat-checkbox matInput name="Active" placeholder="Active" >Active</mat-checkbox>
+        <mat-form-field >
+          <input matInput name="QuickCode" placeholder="Q Code">
+        </mat-form-field>  
+
+        <mat-checkbox matInput name="Active" placeholder="Active" >Active</mat-checkbox>
+
+      </div>
+
+      <div fxLayout="column" fxFlex.lg="30%">
+
+        <mat-form-field >
+          <input matInput name="BusinessPhone" placeholder="Business Phone">
+        </mat-form-field>
     
-      <mat-form-field >
-        <input matInput name="BusinessPhone" placeholder="Business Phone">
-      </mat-form-field>
-  
-      <mat-form-field >
-        <input matInput name="HomePhone" placeholder="Home Phone">
-      </mat-form-field>
-  
-      <mat-form-field >
-        <input matInput name="MobilePhone" placeholder="Mobile Phone">
-      </mat-form-field>
-  
-      <mat-form-field >
-        <input matInput name="Fax" placeholder="Fax">
-      </mat-form-field>
-  
-      <mat-form-field >
-        <input matInput name="Email" placeholder="Email">
-      </mat-form-field>
-  
-      <mat-form-field >
-        <input matInput name="Website" placeholder="Website">
-      </mat-form-field>
+        <mat-form-field >
+          <input matInput name="HomePhone" placeholder="Home Phone">
+        </mat-form-field>
+    
+        <mat-form-field >
+          <input matInput name="MobilePhone" placeholder="Mobile Phone">
+        </mat-form-field>
+    
+        <mat-form-field >
+          <input matInput name="Fax" placeholder="Fax">
+        </mat-form-field>
+        
+      </div>  
+
+      <div fxLayout="column" fxFlex.lg="30%">      
+      
+        <mat-form-field >
+          <input matInput name="Email" placeholder="Email">
+        </mat-form-field>
+    
+        <mat-form-field >
+          <input matInput name="Website" placeholder="Website">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" name="CustomerSince" placeholder="Customer Since"> 
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
 
     </mat-card-content>
 
   </mat-card>
 
-  <mat-card >
+  <div fxLayout="row wrap">
+  <mat-card fxFlex.lg="30%" >
   
-    <mat-card-title>Shipping</mat-card-title>
-    
-    <mat-card-content>
-            
-      <mat-form-field >
+    <mat-card-title>Shipping</mat-card-title>    
+ 
+      <mat-card-content >
+
+      <div fxLayout="column">  
+
+       <mat-form-field >
         <input matInput name="AddressLine1" placeholder="Address Line 1">
       </mat-form-field>
 
@@ -101,84 +122,97 @@
       <mat-form-field >
         <input matInput name="Country" placeholder="Country">
       </mat-form-field>
-  
+      
+      </div>
+
     </mat-card-content>
 
   </mat-card>
 
-  <mat-card>
+  <mat-card fxFlex.lg="60%">
 
     <mat-card-title>Billing</mat-card-title>
   
-    <mat-card-content>
+      <mat-card-content fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="30px">
         
-      <mat-form-field>
-        <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Number To Bill"> 
-      </mat-form-field>
+        <div fxLayout="column" fxFlex.lg="25%">
 
-      <mat-form-field>
-        <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Name to Bill"> 
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Number To Bill"> 
+          </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput name="BillingAddress" placeholder="Billing Address" matTextareaAutosize matAutosizeMinRows="2"
-        matAutosizeMaxRows="5"></textarea>
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput name="CustomerNumberToBillNumber" placeholder="Customer Name to Bill"> 
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" name="CustomerSince" placeholder="Customer Since"> 
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+          <mat-form-field>
+            <textarea matInput name="BillingAddress" placeholder="Billing Address" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input type="number" matInput name="DiscountRate" placeholder="Discount Rate"> 
-      </mat-form-field>
+        </div>
 
-      <mat-form-field>
-        <mat-select name="PaymentMethod" placeholder="Payment Method">
-          <mat-option value="option">Net 15 Days</mat-option>
-          <mat-option value="option">Net 30 Days</mat-option>
-        </mat-select>
-      </mat-form-field>
-      
-      <mat-form-field>
-        <mat-select name="PaymentTerms" placeholder="Payment Terms">
-          <mat-option value="option">Net 15 Days</mat-option>
-          <mat-option value="option">Net 30 Days</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <div fxLayout="column" fxFlex.lg="25%">
 
-      <mat-form-field>
-        <input  matInput name="TaxExemptNumber" placeholder="Tax Exempt Number"> 
-      </mat-form-field>
-      
-      <mat-checkbox matInput name="GST" placeholder="GST" >GST</mat-checkbox>
+          <mat-form-field>
+            <input type="number" matInput name="DiscountRate" placeholder="Discount Rate"> 
+          </mat-form-field> 
 
-      <mat-form-field>
-        <input type="number" matInput name="GSTRate" placeholder="GST Rate"> 
-      </mat-form-field>
+          <mat-form-field>
+            <mat-select name="PaymentMethod" placeholder="Payment Method">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-select name="PaymentTerms" placeholder="Payment Terms">
+              <mat-option value="option">Net 15 Days</mat-option>
+              <mat-option value="option">Net 30 Days</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-checkbox matInput name="PST" placeholder="PST" >PST</mat-checkbox>
+        </div>
 
-      <mat-form-field>
-        <input type="number" matInput name="PSTRate" placeholder="PST Rate"> 
-      </mat-form-field>   
+        <div fxLayout="column" fxFlex.lg="25%">
 
-      <mat-checkbox matInput name="AllowPrintingStatements" >Allow Printing Statements</mat-checkbox>
+          <mat-form-field>
+            <input  matInput name="TaxExemptNumber" placeholder="Tax Exempt Number"> 
+          </mat-form-field>
 
-      <mat-checkbox matInput name="AllowThirdPartyBilling"  >Allow 3rd Pty Billing to Customer</mat-checkbox>
-      
-      <mat-form-field fxFlexFill>
-        <mat-select name="ThirdPartyStatementMessage" placeholder="Print the following information in the billing section of another customers invoice when it is billed to this customer.">
-          <mat-option value="option">Message 'Billed to this Customer'</mat-option>
-          </mat-select>
-      </mat-form-field>
-    
+          <mat-checkbox matInput fxFlex="10px" name="GST" placeholder="GST" >GST</mat-checkbox>
+
+          <mat-form-field >
+            <input type="number" matInput fxFlex="20px" name="GSTRate" placeholder="Rate"> 
+          </mat-form-field>
+
+          <mat-checkbox matInput name="PST" placeholder="PST" >PST</mat-checkbox>
+
+          <mat-form-field>
+            <input type="number" matInput name="PSTRate" placeholder="Rate"> 
+          </mat-form-field>   
+
+        </div>
+
+      <div fxLayout="column"  fxLayoutGap="30px" fxFlexFill>
+
+        <mat-checkbox matInput fxFlexFill name="AllowPrintingStatements" >Allow Printing Statements</mat-checkbox>
+
+        <mat-checkbox matInput fxFlexFill name="AllowThirdPartyBilling"  >Allow 3rd Pty Billing to Customer</mat-checkbox>
+        
+        <mat-form-field fxFlexFill>
+          <mat-select name="ThirdPartyStatementMessage" placeholder="Print the following information in the billing section of another customers invoice when it is billed to this customer.">
+            <mat-option value="option">Message 'Billed to this Customer'</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+      </div>
+
     </mat-card-content>
 
   </mat-card>
-    
+  </div>
+
   <mat-card>
 
     <mat-card-title>Contacts</mat-card-title>
@@ -230,119 +264,126 @@
 
   </mat-card>
 
-  <mat-card>
-    
-    <mat-card-title>Defaults</mat-card-title>
+  <div fxLayout="row wrap">
+    <mat-card fxFlex.lg="30%" >
+      
+      <mat-card-title>Defaults</mat-card-title>
 
+        <mat-card-content fxLayout="column">
+            
+          <mat-form-field >
+            <input matInput name="Reference1" placeholder="Reference 1">
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="Reference2" placeholder="Reference 2">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Advertising">
+              <mat-option [value]="billboard">Billboard</mat-option>
+              <mat-option [value]="radio">Radio</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Ship Via">
+              <mat-option [value]="cod">C.O.D.</mat-option>
+              <mat-option [value]="fedex">Fedex</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Warranty Plan">
+              <mat-option [value]="Extended30Days">Extended 30 Days</mat-option>
+              <mat-option [value]="Manufacturers">Manufacturers</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Language">
+              <mat-option [value]="billboard">English</mat-option>
+              <mat-option [value]="radio">Spanish</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+        </mat-card-content>
+    
+      </mat-card>  
+
+    <mat-card fxFlex.lg="60%">
+    
+      <mat-card-title>Notes</mat-card-title>
+    
         <mat-card-content>
-      <mat-form-field >
-        <input matInput name="Reference1" placeholder="Reference 1">
-      </mat-form-field>
 
-      <mat-form-field >
-        <input matInput name="Reference2" placeholder="Reference 2">
-      </mat-form-field>
+          <mat-form-field fxFlexFill >
+            <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10" ></textarea>
+          </mat-form-field>
 
-      <mat-form-field>
-        <mat-select placeholder="Advertising">
-          <mat-option [value]="billboard">Billboard</mat-option>
-          <mat-option [value]="radio">Radio</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
 
-      <mat-form-field>
-        <mat-select placeholder="Ship Via">
-          <mat-option [value]="cod">C.O.D.</mat-option>
-          <mat-option [value]="fedex">Fedex</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-form-field fxFlexFill>
+            <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10"></textarea>
+          </mat-form-field>  
 
-      <mat-form-field>
-        <mat-select placeholder="Warranty Plan">
-          <mat-option [value]="Extended30Days">Extended 30 Days</mat-option>
-          <mat-option [value]="Manufacturers">Manufacturers</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
+            
+        </mat-card-content>
 
-      <mat-form-field>
-        <mat-select placeholder="Language">
-          <mat-option [value]="billboard">English</mat-option>
-          <mat-option [value]="radio">Spanish</mat-option>
-        </mat-select>
-      </mat-form-field>
-    
-    </mat-card-content>
-  
-  </mat-card>  
+    </mat-card>
 
-  <mat-card>
-  
-    <mat-card-title>Notes</mat-card-title>
-  
-    <mat-card-content>
+  </div>
 
-      <mat-form-field fxFlexFill >
-        <textarea matInput name="Notes" placeholder="Notes to Print" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10" ></textarea>
-      </mat-form-field>
+  <div fxLayout="row wrap" >
+    <mat-card fxFlex.lg="45%">
 
-      <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
+      <mat-card-title>Attachments</mat-card-title>
 
-      <mat-form-field fxFlexFill>
-        <textarea matInput name="Notes" placeholder="Private Notes" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10"></textarea>
-      </mat-form-field>  
-
-      <mat-checkbox>Include on repair orders, sales invoices, and credit notes</mat-checkbox>
-        
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-
-    <mat-card-title>Attachments</mat-card-title>
-
-    <mat-card-content>
-
-      <mat-list>
-        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
-        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
-        <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
-      </mat-list>
-
-      <button mat-raised-button color="primary">New Attachment</button>
-
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-
-      <mat-card-title>Notifications</mat-card-title>
-  
       <mat-card-content>
 
-      <mat-list>
-        <strong>Prevent notifications for</strong>
-        <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Overdue Items</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Items owned by other customers</mat-checkbox>
-      </mat-list>
+        <mat-list>
+          <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
+          <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
+          <mat-list-item><button mat-button >Some random attached file or photo</button><button mat-icon-button><mat-icon>clear</mat-icon></button></mat-list-item>
+        </mat-list>
 
-      <mat-list>
-        <strong>Send status reports on</strong>
-        <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Wednesday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Thursday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Friday</mat-checkbox>
-        <mat-checkbox name="preventEstimateNotification">Saturday</mat-checkbox>
-      </mat-list>
-          
-    </mat-card-content>
-  
-  </mat-card>
+        <button mat-raised-button color="primary">New Attachment</button>
+
+      </mat-card-content>
+
+    </mat-card>
+
+    <mat-card fxFlex.lg="45%">
+
+        <mat-card-title>Notifications</mat-card-title>
+    
+        <mat-card-content fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="30px">
+
+        <mat-list fxLayout="column">
+          <strong>Prevent notifications for</strong>
+          <mat-checkbox name="preventEstimateNotification">Estimates</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Pickup</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Overdue Items</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Items owned by other customers</mat-checkbox>
+        </mat-list>
+
+        <mat-list fxLayout="column">
+          <strong>Send status reports on</strong>
+          <mat-checkbox name="preventEstimateNotification">Sunday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Monday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Tuesday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Wednesday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Thursday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Friday</mat-checkbox>
+          <mat-checkbox name="preventEstimateNotification">Saturday</mat-checkbox>
+        </mat-list>
+            
+      </mat-card-content>
+    
+    </mat-card>
+
+  </div>
 
   <mat-card>
 
@@ -358,28 +399,28 @@
         </ng-container>
 
         <ng-container matColumnDef="Total">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Total </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Total}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Total </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Total}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Thirty">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Thirty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px"> {{row.Thirty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Thirty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="65px"> {{row.Thirty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Sixty">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Sixty </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Sixty}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Sixty </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Sixty}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Ninety">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Ninety </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px" >{{row.Ninety}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Ninety </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="65px" >{{row.Ninety}} </mat-cell>
         </ng-container>
                                   
         <ng-container matColumnDef="Over">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Over </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.Over}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="65px"> Over </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="65px">{{row.Over}} </mat-cell>
         </ng-container> 
 
         <mat-header-row *matHeaderRowDef="balancedueColumns"></mat-header-row>
@@ -401,28 +442,28 @@
       <mat-table [dataSource]="statsDataSource">
 
         <ng-container matColumnDef="Stat">
-          <mat-header-cell *matHeaderCellDef fxFlex="200px"> </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="200px"> {{row.Stat}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="190px"> </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="190px"> {{row.Stat}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="MTD">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> MTD </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.MTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> MTD </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.MTD}}</mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="YTD">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> YTD </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.YTD}}</mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> YTD </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.YTD}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="LastYear">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Last Yr </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px"> {{row.LastYear}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Last Yr </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px"> {{row.LastYear}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="YearBeforeLast">
-          <mat-header-cell *matHeaderCellDef fxFlex="75px"> Yr Before </mat-header-cell>
-          <mat-cell *matCellDef="let row" fxFlex="75px">{{row.YearBeforeLast}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="55px"> Yr Before </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="55px">{{row.YearBeforeLast}} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="statsColumns"></mat-header-row>

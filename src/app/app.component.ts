@@ -12,6 +12,10 @@ export class AppComponent implements OnInit {
   constructor(private toolbarSvc: ToolbarService) {
   }
 
+  nav(){
+    this.shownav = false;
+  }
+
   ngOnInit() {
     this.toolbarSvc.menuSelected.subscribe(
       ()=>{

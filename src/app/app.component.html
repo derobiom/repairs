@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen fxLayout="row" > 
 
-  <mat-sidenav [opened]="shownav" (closedStart)="shownav=false;" fxFlex="220px" fxLayout="column" fxLayoutGap="15px">
+  <mat-sidenav [opened]="shownav" (closedStart)="shownav=false;" fxFlex="220px" fxLayout="column" fxLayoutGap="5px">
 
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="end center" >
       <button mat-icon-button (click)="toolbarSvc.menuSelected.emit()" >
@@ -9,7 +9,7 @@
     </mat-toolbar>
    
     <div>
-      <button routerLink="/home" mat-icon-button fxFlexOffset="2" >
+      <button routerLink="/home" mat-icon-button >
         <mat-icon>home</mat-icon> 
       </button>
       <button mat-button routerLink="/home">Home</button>
@@ -28,6 +28,64 @@
       </button>
       <button mat-button routerLink="/vendors" >Vendors</button> 
     </div>  
+ 
+    <div>
+        <button routerLink="/repairs" mat-icon-button >
+          <mat-icon>build</mat-icon> 
+        </button>
+        <button mat-button routerLink="/repairs">Repairs</button> 
+      </div>  
+  
+      <div>
+        <button routerLink="/salesinvoices" mat-icon-button >
+          <mat-icon>local_atm</mat-icon> 
+        </button>
+        <button mat-button routerLink="/salesinvoices">Sales Invoices</button> 
+      </div>  
+  
+      <div>
+        <button routerLink="/creditnotes" mat-icon-button >
+          <mat-icon>note</mat-icon> 
+        </button>
+        <button mat-button routerLink="/creditnotes">Credit Notes</button> 
+      </div>  
+  
+      <div>
+        <button routerLink="/purchaseorders" mat-icon-button >
+          <mat-icon>shopping_cart</mat-icon> 
+        </button>
+        <button mat-button routerLink="/purchaseorders">Purchase Orders</button> 
+      </div>  
+   
+      <div>
+        <button routerLink="/inventory" mat-icon-button >
+          <mat-icon fontSet="fa" fontIcon="fa-barcode"></mat-icon> 
+        </button>
+        <button mat-button routerLink="/inventory">Inventory</button> 
+      </div>  
+  
+      <div>
+        <button routerLink="/servicecodes" mat-icon-button >
+          <mat-icon fontSet="fa" fontIcon="fa-font"></mat-icon> 
+        </button>
+        <button mat-button routerLink="/servicecodes">Service Codes</button> 
+      </div>  
+  
+      <div>
+        <button routerLink="/packagecodes" mat-icon-button >
+          <mat-icon fontSet="fa" fontIcon="fa-dropbox"></mat-icon> 
+        </button>
+        <button mat-button routerLink="/packagecodes">Package Codes</button> 
+      </div> 
+  
+      <div>
+        <button routerLink="/warrantycards" mat-icon-button >
+          <mat-icon fontSet="fa" fontIcon="fa-institution"></mat-icon> 
+        </button>
+        <button mat-button routerLink="/warrantycards">Warranty Cards</button> 
+      </div> 
+  
+
 
   </mat-sidenav> 
 

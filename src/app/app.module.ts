@@ -8,10 +8,12 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeModule } from './home/home.module';
+import { OopsComponent } from './oops/oops.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    OopsComponent,
   ],
   imports: [
     BrowserModule,
